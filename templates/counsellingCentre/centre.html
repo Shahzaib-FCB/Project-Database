@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Counselling Centres
+{% endblock %}
+
+{% block heading %}
+    Counselling Centres Actions
+{% endblock %}
+
+{% block body %}
+Select one option
+    <form action="{{ url_for('handleCentre') }}" method="post">
+        <ul>
+            <li><input name="button" type="radio" value= "centreView">View</li>
+            <li><input name="button" type="radio" value= "centreInsert">Update</li>
+            <li><input name="button" type="radio" value= "centreDelete">Delete</li>
+        </ul>
+        <input type="submit" value="Submit"/>
+    </form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Fee
+{% endblock %}
+
+{% block heading %}
+    Fee Actions
+{% endblock %}
+
+{% block body %}
+Select one option
+    <form action="{{ url_for('handleFee') }}" method="post">
+        <ul>
+            <li><input name="button" type="radio" value= "feeView">View</li>
+            <li><input name="button" type="radio" value= "feeInsert">Update</li>
+            <li><input name="button" type="radio" value= "feeDelete">Delete</li>
+        </ul>
+        <input type="submit" value="Submit"/>
+    </form>
+{% endblock %}

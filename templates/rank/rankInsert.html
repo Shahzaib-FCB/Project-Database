@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Ranking
+{% endblock %}
+
+{% block heading %}
+    Inserting into Rank
+{% endblock %}
+
+{% block body %}
+    <fieldset>
+        <legend>Rank Form</legend>
+        <form action="{{ url_for('rankInsert') }}" method="post">
+            School Registration Number:<br>
+            <select name="SchRegNo">
+                <option value="NULL"></option>
+
+                {% for i in InsRank %}
+                <option value="{{ i.RegNo }}">{{ i.RegNo }} - {{ i.Sname }}</option>
+                {% endfor %}
+            </select><br>
+
+            School Name:<br>
+            <select name="Sname">
+                <option value="NULL"></option>
+
+                {% for i in InsRank %}
+                <option value="{{ i.Sname }}">{{ i.Sname }}</option>
+                {% endfor %}
+            </select><br>
+
+            District Rank:<br>
+            <input type="number" name="DistrictRank"><br>
+
+            City Rank:<br>
+            <input type="number" name="CityRank"/><br>
+
+            <input type="submit" value="Insert">
+        </form>
+    </fieldset>
+{% endblock %}

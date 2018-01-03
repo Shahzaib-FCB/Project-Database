@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Admissions
+{% endblock %}
+
+{% block heading %}
+    Admission Actions
+{% endblock %}
+
+{% block body %}
+Select one option
+    <form action="{{ url_for('handleAdmission') }}" method="post">
+        <ul>
+            <li><input name="button" type="radio" value= "admissionView">View</li>
+            <li><input name="button" type="radio" value= "admissionInsert">Update</li>
+            <li><input name="button" type="radio" value= "admissionDelete">Delete</li>
+        </ul>
+        <input type="submit" value="Submit"/>
+    </form>
+{% endblock %}

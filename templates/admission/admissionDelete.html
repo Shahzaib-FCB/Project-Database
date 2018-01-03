@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Admission
+{% endblock %}
+
+{% block heading %}
+    Admission Delete
+{% endblock %}
+
+{% block body %}
+Select one option
+    <table style="width:100%">
+        <tr>
+            <th>School Number</th>
+            <th>Fee</th>
+            <th>Level</th>
+            <th>Marks Required</th>
+        </tr>
+        <form action="{{ url_for('admissionDelete') }}" method="post">
+            {% for i in admissionDelete %}
+                <tr>
+                    <td><div class="radio"><label><input type="radio" id='regular' name="SchRegNo" value="{{ i.SchRegNo }}" >{{ i.SchRegNo }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.Fee }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.Level }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.MarksReq }}</label></div></td>
+                </tr>
+            {% endfor %}
+    </table>
+    <br><input type="submit" value="Delete"/>
+    </form>
+{% endblock %}

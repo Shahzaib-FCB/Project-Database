@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Fee
+{% endblock %}
+
+{% block heading %}
+    View Fee
+{% endblock %}
+
+{% block body %}
+    <table style="width:100%">
+        <tr>
+            <th>Fee ID</th>
+            <th>Total Amount</th>
+            <th>Level</th>
+            <th>Fee Last Date</th>
+            <th>School Registration Number</th>
+            <th>Course ID</th>
+        </tr>
+        {% for i in feeView %}
+            <tr>
+                <td>{{ i.FeeId }}</td>
+                <td>{{ i.TotalAmount }}</td>
+                <td>{{ i.Level }}</td>
+                <td>{{ i.FeeDate }}</td>
+                <td>{{ i.SchRegNo }}</td>
+                <td>{{ i.CourseId }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

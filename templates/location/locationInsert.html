@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Location
+{% endblock %}
+
+{% block heading %}
+    Inserting into Location
+{% endblock %}
+
+{% block body %}
+    <fieldset>
+        <legend>Location Form</legend>
+        <form action="{{ url_for('locationInsert') }}" method="post">
+            School Registration Number:<br>
+            <select name="SchRegNo">
+                <option value="NULL"></option>
+
+                {% for i in InsLocation %}
+                <option value="{{ i.RegNo }}">{{ i.RegNo }} - {{ i.Sname }}</option>
+                {% endfor %}
+            </select><br>
+
+            School Name:<br>
+            <select name="Sname">
+                <option value="NULL"></option>
+
+                {% for i in InsLocation %}
+                <option value="{{ i.Sname }}">{{ i.Sname }}</option>
+                {% endfor %}
+            </select><br>
+
+            City:<br>
+            <input type="text" name="City"><br>
+
+            Campus Name:<br>
+            <input type="text" name="CampusName"><br>
+
+            District:<br>
+            <input type="text" name="District"><br>
+
+            Province:<br>
+            <input type="text" name="Province"><br>
+
+            <input type="submit" value="Insert">
+        </form>
+    </fieldset>
+{% endblock %}

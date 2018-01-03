@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Result
+{% endblock %}
+
+{% block heading %}
+    Result Delete
+{% endblock %}
+
+{% block body %}
+Select one option
+    <table style="width:100%">
+        <tr>
+            <th>School Number</th>
+            <th>Location</th>
+            <th>Fail Percentage</th>
+            <th>Pass Percentage</th>
+            <th>Level</th>
+        </tr>
+        <form action="{{ url_for('resultDelete') }}" method="post">
+            {% for i in resultDelete %}
+                <tr>
+                    <td><div class="radio"><label><input type="radio" id='regular' name="SchRegNo" value="{{ i.SchRegNo }}" >{{ i.SchRegNo }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.Location }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.FailPer }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.PassPer }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.Level }}</label></div></td>
+                </tr>
+            {% endfor %}
+    </table>
+    <br><input type="submit" value="Delete"/>
+    </form>
+{% endblock %}

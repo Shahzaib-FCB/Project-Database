@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Result
+{% endblock %}
+
+{% block heading %}
+    Result
+{% endblock %}
+
+{% block body %}
+    <table style="width:100%">
+        <tr>
+            <th>School Number</th>
+            <th>Location</th>
+            <th>Fail Percentage</th>
+            <th>Pass Percentage</th>
+            <th>Level</th>
+        </tr>
+        {% for i in resultView %}
+            <tr>
+                <td>{{ i.SchRegNo }}</td>
+                <td>{{ i.Location }}</td>
+                <td>{{ i.FailPer }}</td>
+                <td>{{ i.PassPer }}</td>
+                <td>{{ i.Level }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

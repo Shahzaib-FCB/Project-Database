@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>School Ranking System - {% block title%} {% endblock %}</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/fonts/PoiretOne.css') }}" >
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/fonts/PermanentMarker.css') }}">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+	<script type="text/javascript" src="{{ url_for('static', filename='js/javascript.js') }}"></script>
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="/school">Campus</a>
+		<a href="/course">Courses</a>
+		<a href="/fee">Fee</a>
+		<a href="/admission">Admissions</a>
+		<a href="/result">Results</a>
+		<a href="/scholarship">Scholarships</a>
+		<a href="/test">Tests</a>
+		<a href="/location">Location</a>
+		<a href="/rank">Rank</a>
+		<a href="/centre">Centres</a>
+	</div>
+
+	<div id="main" class="w3-animate-opacity">
+		<div id="Title">
+			<span class="openSideNav" onclick="openNav()">&#9776;</span>
+			<span class="titleBar"> School Ranking System </span>
+			<span class="titleBarMenu">
+				<a href="/dashboard">Home</a>
+				<a href="/logout">Log Out</a>
+			</span>
+		</div>
+		<!--Write Every Code Here-->
+		<h1>{% block heading %}{% endblock %}</h1>
+
+		{% block body %}{% endblock %}
+	</div>
+</body>
+</html>

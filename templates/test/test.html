@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Test
+{% endblock %}
+
+{% block heading %}
+    Test Actions
+{% endblock %}
+
+{% block body %}
+Select one option
+    <form action="{{ url_for('handleTest') }}" method="post">
+        <ul>
+            <li><input name="button" type="radio" value= "testView">View</li>
+            <li><input name="button" type="radio" value= "testInsert">Update</li>
+            <li><input name="button" type="radio" value= "testDelete">Delete</li>
+        </ul>
+        <input type="submit" value="Submit"/>
+    </form>
+{% endblock %}

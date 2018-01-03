@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Course
+{% endblock %}
+
+{% block heading %}
+    Inserting into Course
+{% endblock %}
+
+{% block body %}
+    <fieldset>
+        <legend>Course Form</legend>
+        <form action="{{ url_for('courseInsert') }}" method="post">
+
+            Course Number:<br>
+            <input type="number" name="CourseId"/><br>
+
+            Course name:<br>
+            <input type="text" name="Cname"><br>
+
+            Level:<br>
+            <input type="number" name="Level"><br>
+
+            School Registration Number:<br>
+            <select name="SchRegNo">
+                <option value="NULL"></option>
+
+                {% for i in InsCourse %}
+                <option value="{{ i.RegNo }}">{{ i.RegNo }} - {{ i.Sname }}</option>
+                {% endfor %}
+            </select><br>
+
+            <input type="submit" value="Insert Course">
+        </form>
+    </fieldset>
+{% endblock %}

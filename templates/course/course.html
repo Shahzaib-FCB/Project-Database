@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Courses
+{% endblock %}
+
+{% block heading %}
+    Courses Actions
+{% endblock %}
+
+{% block body %}
+Select one option
+    <form action="{{ url_for('handleCourse') }}" method="post">
+        <ul>
+            <li><input name="button" type="radio" value= "courseView">View</li>
+            <li><input name="button" type="radio" value= "courseInsert">Update</li>
+            <li><input name="button" type="radio" value= "courseDelete">Delete</li>
+        </ul>
+        <input type="submit" value="Submit"/>
+    </form>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Admission
+{% endblock %}
+
+{% block heading %}
+    Inserting into Admission
+{% endblock %}
+
+{% block body %}
+    <fieldset>
+        <legend>Admission Form</legend>
+        <form action="{{ url_for('admissionInsert') }}" method="post">
+
+            School Registration Number:<br>
+            <select name="SchRegNo">
+                <option value="NULL"></option>
+
+                {% for i in InsAdmission %}
+                <option value="{{ i.RegNo }}">{{ i.RegNo }} - {{ i.Sname }}</option>
+                {% endfor %}
+            </select><br>
+
+            Fee:<br>
+            <input type="text" name="Fee"><br>
+
+            Level:<br>
+            <input type="number" name="Level"><br>
+
+            Minimum Marks Required:<br>
+            <input type="text" name="MarksReq"/><br>
+
+            <input type="submit" value="Insert">
+        </form>
+    </fieldset>
+{% endblock %}

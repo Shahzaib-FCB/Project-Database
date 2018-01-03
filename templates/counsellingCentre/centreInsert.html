@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Counselling Centres
+{% endblock %}
+
+{% block heading %}
+    Inserting into Counselling Centres
+{% endblock %}
+
+{% block body %}
+    <fieldset>
+        <legend>Counselling Centres Form</legend>
+        <form action="{{ url_for('centreInsert') }}" method="post">
+
+            Counselling Centre Name:<br>
+            <input type="text" name="Name"/><br>
+
+            Address:<br>
+            <input type="text" name="Adress"><br>
+
+            Phone Number:<br>
+            <input type="tel" name="PhoneNumber"><br>
+
+            <input type="submit" value="Insert Centre">
+        </form>
+    </fieldset>
+{% endblock %}

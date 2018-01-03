@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Fee
+{% endblock %}
+
+{% block heading %}
+    Fee Delete
+{% endblock %}
+
+{% block body %}
+Select one option
+    <table style="width:100%">
+        <tr>
+            <th>Fee ID</th>
+            <th>Total Amount</th>
+            <th>Level</th>
+            <th>Fee Date</th>
+            <th>School Registration Number</th>
+            <th>Course ID</th>
+        </tr>
+        <form action="{{ url_for('feeDelete') }}" method="post">
+            {% for i in feeDelete %}
+                <tr>
+                    <td><div class="radio"><label><input type="radio" id='regular' name="FeeId" value="{{ i.FeeId }}" >{{ i.FeeId }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.TotalAmount }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.Level }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.FeeDate }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.SchRegNo }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.CourseId }}</label></div></td>
+                </tr>
+            {% endfor %}
+    </table>
+    <br><input type="submit" value="Delete"/>
+    </form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Test
+{% endblock %}
+
+{% block heading %}
+    Test
+{% endblock %}
+
+{% block body %}
+    <table style="width:100%">
+        <tr>
+            <th>School Number</th>
+            <th>School Name</th>
+            <th>Test Date</th>
+            <th>Level</th>
+            <th>Centre City</th>
+            <th>Course Name</th>
+        </tr>
+        {% for i in testView %}
+            <tr>
+                <td>{{ i.SchRegNo }}</td>
+                <td>{{ i.Sname }}</td>
+                <td>{{ i.TestDate }}</td>
+                <td>{{ i.Level }}</td>
+                <td>{{ i.Centre }}</td>
+                <td>{{ i.Cname }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

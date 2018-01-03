@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Scholarship
+{% endblock %}
+
+{% block heading %}
+    Scholarship Actions
+{% endblock %}
+
+{% block body %}
+Select one option
+    <form action="{{ url_for('handleScholarship') }}" method="post">
+        <ul>
+            <li><input name="button" type="radio" value= "scholarshipView">View</li>
+            <li><input name="button" type="radio" value= "scholarshipInsert">Update</li>
+            <li><input name="button" type="radio" value= "scholarshipDelete">Delete</li>
+        </ul>
+        <input type="submit" value="Submit"/>
+    </form>
+{% endblock %}

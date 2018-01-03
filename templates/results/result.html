@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Result
+{% endblock %}
+
+{% block heading %}
+    Result Actions
+{% endblock %}
+
+{% block body %}
+Select one option
+    <form action="{{ url_for('handleResult') }}" method="post">
+        <ul>
+            <li><input name="button" type="radio" value= "resultView">View</li>
+            <li><input name="button" type="radio" value= "resultInsert">Update</li>
+            <li><input name="button" type="radio" value= "resultDelete">Delete</li>
+        </ul>
+        <input type="submit" value="Submit"/>
+    </form>
+{% endblock %}

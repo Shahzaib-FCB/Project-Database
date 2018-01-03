@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Ranking
+{% endblock %}
+
+{% block heading %}
+    Rank
+{% endblock %}
+
+{% block body %}
+    <table style="width:100%">
+        <tr>
+            <th>School Number</th>
+            <th>School Name</th>
+            <th>District Rank</th>
+            <th>City Rank</th>
+        </tr>
+        {% for i in rankView %}
+            <tr>
+                <td>{{ i.SchRegNo }}</td>
+                <td>{{ i.Sname }}</td>
+                <td>{{ i.DistrictRank }}</td>
+                <td>{{ i.CityRank }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

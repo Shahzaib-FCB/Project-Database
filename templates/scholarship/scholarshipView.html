@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Scholarship
+{% endblock %}
+
+{% block heading %}
+    Scholarship
+{% endblock %}
+
+{% block body %}
+    <table style="width:100%">
+        <tr>
+            <th>Scholarship Name</th>
+            <th>Organization Name</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>School</th>
+        </tr>
+        {% for i in scholarshipView %}
+            <tr>
+                <td>{{ i.schName }}</td>
+                <td>{{ i.OrgName }}</td>
+                <td>{{ i.Type }}</td>
+                <td>{{ i.Amount }}</td>
+                <td>{{ i.SchRegNo }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

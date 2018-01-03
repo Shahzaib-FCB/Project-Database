@@ -1,0 +1,191 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block heading %}
+    Dashboard
+{% endblock %}
+
+{% block body %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/Chart.min.js') }}"></script>
+
+    <div class="row">
+        <div class="column" style="width: 50%">
+            <h3>Number of Schools in Different Cities</h3>
+            <canvas id="schools_per_city" width="600" height="400"></canvas>
+        </div>
+        <div class="column" style="width: 50%">
+            <h3>Number of Scholarships per Cities</h3>
+            <canvas id="scholarships_per_city" width="600" height="400"></canvas>
+        </div>
+        <div class="column" style="width: 50%">
+            <h3>Number of Courses Taught in each School</h3>
+            <canvas id="courses_per_school" width="600" height="400"></canvas>
+        </div>
+
+        <div class="column" style="width: 50%">
+            <h3>Courses with city</h3>
+            <canvas id="courses_per_city" width="600" height="400"></canvas>
+        </div>
+    </div>
+
+
+
+    <script>
+        // bar chart data
+    	var barData = {
+        	labels : [
+            	{% for item in school %}
+                	"{{ item.Location }}",
+    			{% endfor %} ],
+            datasets : [
+            {
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+
+                data : [
+                {% for item in school %}
+                    {{ item.number_of_Schools }},
+                {% endfor %}]
+
+            } ]
+         }
+
+        // get bar chart canvas
+        var mychart = document.getElementById("schools_per_city").getContext("2d");
+
+    	steps = 5
+        max = 10
+        // draw bar chart
+        new Chart(mychart).Bar(barData, {
+        	scaleOverride: true,
+            scaleSteps: steps,
+            scaleStepWidth: Math.ceil(max / steps),
+            scaleStartValue: 0,
+            scaleShowVerticalLines: true,
+            scaleShowGridLines : true,
+            barShowStroke : true,
+            scaleShowLabels: true
+        });
+    </script>
+
+    <script>
+        // bar chart data
+    	var barData = {
+        	labels : [
+            	{% for item in scholarships %}
+                	"{{ item.Location }}",
+    			{% endfor %} ],
+            datasets : [
+            {
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+
+                data : [
+                {% for item in scholarships %}
+                    {{ item.Schools }},
+                {% endfor %}]
+
+            } ]
+         }
+
+        // get bar chart canvas
+        var mychart = document.getElementById("scholarships_per_city").getContext("2d");
+
+    	steps = 5
+        max = 10
+        // draw bar chart
+        new Chart(mychart).Bar(barData, {
+        	scaleOverride: true,
+            scaleSteps: steps,
+            scaleStepWidth: Math.ceil(max / steps),
+            scaleStartValue: 0,
+            scaleShowVerticalLines: true,
+            scaleShowGridLines : true,
+            barShowStroke : true,
+            scaleShowLabels: true
+        });
+    </script>
+
+    <script>
+        // bar chart data
+    	var barData = {
+        	labels : [
+            	{% for item in coursesperSchool %}
+                	"{{ item.Sname }}",
+    			{% endfor %} ],
+            datasets : [
+            {
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+
+                data : [
+                {% for item in coursesperSchool %}
+                    {{ item.Courses }},
+                {% endfor %}]
+
+            } ]
+         }
+
+        // get bar chart canvas
+        var mychart = document.getElementById("courses_per_school").getContext("2d");
+
+    	steps = 5
+        max = 10
+        // draw bar chart
+        new Chart(mychart).Bar(barData, {
+        	scaleOverride: true,
+            scaleSteps: steps,
+            scaleStepWidth: Math.ceil(max / steps),
+            scaleStartValue: 0,
+            scaleShowVerticalLines: true,
+            scaleShowGridLines : true,
+            barShowStroke : true,
+            scaleShowLabels: true
+        });
+    </script>
+
+    <script>
+        // bar chart data
+    	var barData = {
+        	labels : [
+            	{% for item in coursesperCity %}
+                	"{{ item.City }}",
+    			{% endfor %} ],
+            datasets : [
+            {
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+
+                data : [
+                {% for item in coursesperCity %}
+                    {{ item.CoursespCity }},
+                {% endfor %}]
+
+            } ]
+         }
+
+        // get bar chart canvas
+        var mychart = document.getElementById("courses_per_city").getContext("2d");
+
+    	steps = 5
+        max = 10
+        // draw bar chart
+        new Chart(mychart).Bar(barData, {
+        	scaleOverride: true,
+            scaleSteps: steps,
+            scaleStepWidth: Math.ceil(max / steps),
+            scaleStartValue: 0,
+            scaleShowVerticalLines: true,
+            scaleShowGridLines : true,
+            barShowStroke : true,
+            scaleShowLabels: true
+        });
+    </script>
+{% endblock %}

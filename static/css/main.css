@@ -1,0 +1,193 @@
+body {
+	margin: 0;
+	font: 16px 'Poiret One' !important;
+}
+
+th {
+    text-align: left;
+}
+
+img {
+    display: inline-block;
+    border-radius: 50%;
+}
+
+canvas {
+	display: inline-block;
+}
+
+li {
+	list-style: none;
+}
+
+/* Selecting Text */
+::selection {
+    background: #1abc9c;            /*Torquoise*/
+}
+
+/* Used in Delete Table */
+.radiotext {
+    margin: 10px 10px 0px 0px;
+}
+
+/* Side Navigation Bar */
+.sidenav {
+    height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #2e2e2e;     /*Gray*/
+    overflow-x: hidden;
+    transition: 0.5s;
+	padding-top: 60px;
+}
+
+/* Side Navigation Bar Open Button */
+.openSideNav {
+    font-size:30px;
+	cursor:pointer;
+}
+
+/* Side Navigation Bar Open Button Selection */
+.openSideNav::selection {
+    color: #f1f1f1;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;                 /*Light Gray*/
+	display: block;
+	transition: 0.3s;
+}
+
+.sidenav a:hover , .titleBarMenu a:hover {
+    color: #f1f1f1;                 /*White*/
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+	right: 15px;
+	font-size: 36px;
+	margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+#Title {
+    transition: margin-left .5s;
+	padding: 16px;
+    background: #2e2e2e;            /*Darker Gray*/
+    color: #818181;                 /*Lighter Gray*/
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+	.sidenav a {font-size: 18px;}
+}
+
+.titleBar {
+    position: relative;
+	left: 100px;
+	font-size: 30px;
+	font-family: 'Permanent Marker', cursive;
+	text-transform: capitalize;
+	line-height:36px;
+	padding: 16px;
+	background: #1abc9c;            /*Torquoise*/
+	color: white;
+}
+
+.titleBarMenu {
+    font-size: 30px;
+	position: absolute;
+	right: 100px;
+}
+
+.titleBarMenu a {
+    color: #818181;                 /*Light Gray*/
+	text-decoration: none;
+	display: inline-block;
+}
+
+.titleBar::selection {
+    background: #818181;            /*Lighter Gray*/
+}
+
+.titleBarMenu a::selection {
+    color: white;
+    background-color: #1abc9c;      /*Torquoise*/
+}
+
+/* ABOUT PAGE */
+/* Animations */
+#fadeIn {
+	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+}
+
+@keyframes fadein {
+	from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+	from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* About - Card View */
+html { box-sizing: border-box; }
+
+*, *:before, *:after { box-sizing: inherit; }
+
+.column {
+	float: left;
+	width: 33.3%;
+	margin-bottom: 16px;
+	padding: 0 8px;
+	text-align: center;
+}
+
+@media (max-width: 650px) {
+	.column {
+		width: 100%;
+		display: block;
+		text-align: center;
+	}
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	text-align: center;
+}
+
+.container { padding: 0 16px; }
+
+.container::after, .row::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+.title { color: grey; }
+
+.button {
+	border: none;
+	outline: 0;
+	display: inline-block;
+	padding: 8px;
+	color: white;
+	background-color: #2e2e2e;
+	text-align: center;
+	cursor: pointer;
+	width: 100%;
+}
+
+.button:hover { background-color: #818181; }

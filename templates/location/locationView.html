@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Location
+{% endblock %}
+
+{% block heading %}
+    Location
+{% endblock %}
+
+{% block body %}
+    <table style="width:100%">
+        <tr>
+            <th>School Registration Number</th>
+            <th>School Name</th>
+            <th>City</th>
+            <th>CampusName</th>
+            <th>District</th>
+            <th>Province</th>
+        </tr>
+        {% for i in locationView %}
+            <tr>
+                <td>{{ i.SchRegNo }}</td>
+                <td>{{ i.Sname }}</td>
+                <td>{{ i.City }}</td>
+                <td>{{ i.CampusName }}</td>
+                <td>{{ i.District }}</td>
+                <td>{{ i.Province }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

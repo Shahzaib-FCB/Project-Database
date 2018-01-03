@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Admission
+{% endblock %}
+
+{% block heading %}
+    Admission
+{% endblock %}
+
+{% block body %}
+    <table style="width:100%">
+        <tr>
+            <th>School Number</th>
+            <th>Fee</th>
+            <th>Level</th>
+            <th>Marks Required</th>
+        </tr>
+        {% for i in admissionView %}
+            <tr>
+                <td>{{ i.SchRegNo }}</td>
+                <td>{{ i.Fee }}</td>
+                <td>{{ i.Level }}</td>
+                <td>{{ i.MarksReq }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

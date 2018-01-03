@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Test
+{% endblock %}
+
+{% block heading %}
+    Inserting into Test
+{% endblock %}
+
+{% block body %}
+    <fieldset>
+        <legend>Test Form</legend>
+        <form action="{{ url_for('testInsert') }}" method="post">
+
+            School Registration Number:<br>
+            <select name="SchRegNo">
+                <option value="NULL"></option>
+
+                {% for i in InsTest %}
+                <option value="{{ i.RegNo }}">{{ i.RegNo }} - {{ i.Sname }}</option>
+                {% endfor %}
+            </select><br>
+
+            School Name:<br>
+            <select name="Sname">
+                <option value="NULL"></option>
+
+                {% for i in InsTest %}
+                <option value="{{ i.Sname }}">{{ i.Sname }}</option>
+                {% endfor %}
+            </select><br>
+
+            Test Date:<br>
+            <input type="date" name="TestDate"><br>
+
+            Level:<br>
+            <input type="number" name="Level"/><br>
+
+            Centre City:<br>
+            <input type="text" name="Centre"/><br>
+
+            Course Name:<br>
+            <input type="text" name="Cname"/><br>
+
+            <input type="submit" value="Insert">
+        </form>
+    </fieldset>
+{% endblock %}

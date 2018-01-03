@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Result
+{% endblock %}
+
+{% block heading %}
+    Inserting into Result
+{% endblock %}
+
+{% block body %}
+    <fieldset>
+        <legend>Result Form</legend>
+        <form action="{{ url_for('resultInsert') }}" method="post">
+
+            School Registration Number:<br>
+            <select name="SchRegNo">
+                <option value="NULL"></option>
+
+                {% for i in InsResult %}
+                <option value="{{ i.RegNo }}">{{ i.RegNo }} - {{ i.Sname }}</option>
+                {% endfor %}
+            </select><br>
+
+            Location:<br>
+            <input type="text" name="Location"><br>
+
+            Fail Percentage:<br>
+            <input type="number" name="FailPer" min="0" max="100"/><br>
+
+            Pass Percentage:<br>
+            <input type="number" name="PassPer" min="0" max="100"/><br>
+
+            Level:<br>
+            <input type="number" name="Level"><br>
+
+            <input type="submit" value="Insert">
+        </form>
+    </fieldset>
+{% endblock %}

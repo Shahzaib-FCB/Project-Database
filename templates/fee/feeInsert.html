@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Fee
+{% endblock %}
+
+{% block heading %}
+    Inserting into Fee
+{% endblock %}
+
+{% block body %}
+    <style>
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            top: -5px;
+            left: 110%;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent black transparent transparent;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+    </style>
+
+    <fieldset>
+        <legend>Fee Form</legend>
+        <form action="{{ url_for('feeInsert') }}" method="post">
+
+            Fee ID:<br>
+            <input type="number" name="FeeId"/><br>
+
+            <div class="tooltip">Total Amount:
+              <span class="tooltiptext">At Least 1,000</span>
+            </div><br>
+            <input type="number" name="TotalAmount" min="1000"><br>
+
+            Level:<br>
+            <input type="number" name="Level"><br>
+
+            Fee Date:<br>
+            <input type="date" name="FeeDate"><br>
+
+            School Registration Number:<br>
+            <select name="SchRegNo">
+                <option value="NULL"></option>
+
+                {% for i in InsSchoolFee %}
+                <option value="{{ i.RegNo }}">{{ i.RegNo }} - {{ i.Sname }}</option>
+                {% endfor %}
+            </select><br>
+
+            Course ID:<br>
+            <select name="CourseId">
+                <option value="NULL"></option>
+
+                {% for i in InsCourseFee %}
+                <option value="{{ i.CourseId }}">{{ i.CourseId }} - {{ i.Cname }}</option>
+                {% endfor %}
+            </select><br>
+
+            <input type="submit" value="Insert Fee">
+        </form>
+    </fieldset>
+{% endblock %}

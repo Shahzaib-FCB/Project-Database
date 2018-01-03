@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Counselling Centres
+{% endblock %}
+
+{% block heading %}
+    View Counselling Centres
+{% endblock %}
+
+{% block body %}
+    <table style="width:100%">
+        <tr>
+            <th>Counselling Centre Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+        </tr>
+        {% for i in centreView %}
+            <tr>
+                <td>{{ i.Name }}</td>
+                <td>{{ i.Adress }}</td>
+                <td>{{ i.PhoneNumber }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

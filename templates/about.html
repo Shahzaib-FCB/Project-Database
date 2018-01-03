@@ -1,0 +1,52 @@
+{% extends "loginLayout.html" %}
+
+{% block title %}
+  About
+{% endblock %}
+
+{% block heading %}
+  About
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+      <div class="column" id="fadeIn">
+        <div class="card">
+          <img src="{{ url_for('static', filename='img/pictures/Shahzaib.jpg') }}" alt="Shahzaib" width="300" height="300"/>
+          <div class="container">
+            <h2>Shahzaib Waseem</h2>
+            <p class="title">Front-End Designer</p>
+            <p>Front End, Python Server</p>
+            <p>shahzaib.waseem96@gmail.com</p>
+            <p><button class="button">Contact</button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column" id="fadeIn">
+        <div class="card">
+          <img src="{{ url_for('static', filename='img/pictures/Shafay.jpg') }}" alt="Shafay" width="300" height="300"/>
+          <div class="container">
+            <h2>Shafay Ijaz</h2>
+            <p class="title">Database Designer</p>
+            <p>ERD, Database Schema, SQL Queries</p>
+            <p>mijaz.bscs16seecs@seecs.edu.pk</p>
+            <p><button class="button">Contact</button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column" id="fadeIn">
+        <div class="card">
+          <img src="{{ url_for('static', filename='img/pictures/Sanan.jpg') }}" alt="Sanan" width="300" height="300"/>
+          <div class="container">
+            <h2>Sanan</h2>
+            <p class="title">Pizza BOi</p>
+            <p>I dyd absylutili dyd notang. ei am a rytrd. kill mi plx</p>
+            <p>sanan@gareeb.com</p>
+            <p><button class="button">Contact</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

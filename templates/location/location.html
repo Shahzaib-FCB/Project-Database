@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Location
+{% endblock %}
+
+{% block heading %}
+    Location Actions
+{% endblock %}
+
+{% block body %}
+Select one option
+    <form action="{{ url_for('handleLocation') }}" method="post">
+        <ul>
+            <li><input name="button" type="radio" value= "locationView">View</li>
+            <li><input name="button" type="radio" value= "locationInsert">Update</li>
+            <li><input name="button" type="radio" value= "locationDelete">Delete</li>
+        </ul>
+        <input type="submit" value="Submit"/>
+    </form>
+{% endblock %}

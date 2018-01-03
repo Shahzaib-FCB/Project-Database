@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Ranking
+{% endblock %}
+
+{% block heading %}
+    Rank Actions
+{% endblock %}
+
+{% block body %}
+Select one option
+    <form action="{{ url_for('handleRank') }}" method="post">
+        <ul>
+            <li><input name="button" type="radio" value= "rankView">View</li>
+            <li><input name="button" type="radio" value= "rankInsert">Update</li>
+            <li><input name="button" type="radio" value= "rankDelete">Delete</li>
+        </ul>
+        <input type="submit" value="Submit"/>
+    </form>
+{% endblock %}

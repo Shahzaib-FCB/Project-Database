@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Scholarship
+{% endblock %}
+
+{% block heading %}
+    Scholarship Delete
+{% endblock %}
+
+{% block body %}
+Select one option
+    <table style="width:100%">
+        <tr>
+            <th>Scholarship Name</th>
+            <th>Organization Name</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>School</th>
+        </tr>
+        <form action="{{ url_for('scholarshipDelete') }}" method="post">
+            {% for i in scholarshipDelete %}
+                <tr>
+                    <td><div class="radio"><label><input type="radio" id='regular' name="schName" value="{{ i.schName }}" >{{ i.schName }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.OrgName }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.Type }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.Amount }}</label></div></td>
+                    <td><div class="radiotext"><label for='regular'>{{ i.SchRegNo }}</label></div></td>
+                </tr>
+            {% endfor %}
+    </table>
+    <br><input type="submit" value="Delete"/>
+    </form>
+{% endblock %}
