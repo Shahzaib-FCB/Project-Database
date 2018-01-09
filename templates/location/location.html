@@ -10,12 +10,93 @@
 
 {% block body %}
 Select one option
-    <form action="{{ url_for('handleLocation') }}" method="post">
-        <ul>
-            <li><input name="button" type="radio" value= "locationView">View</li>
-            <li><input name="button" type="radio" value= "locationInsert">Update</li>
-            <li><input name="button" type="radio" value= "locationDelete">Delete</li>
-        </ul>
-        <input type="submit" value="Submit"/>
-    </form>
+    Select one option
+
+    {% if authority == "user" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/locationView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in location %}
+                        <li>{{ i.Sname }} City: {{ i.City }} District: {{ i.District }} Province: {{ i.Province }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {% elif authority == "partial" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/locationView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in location %}
+                        <li>{{ i.Sname }} City: {{ i.City }} District: {{ i.District }} Province: {{ i.Province }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/locationInsert">
+                <div class="card">
+                    <h1>Insert</h1>
+                    <ul>
+                    {% for i in location %}
+                        <li>{{ i.Sname }} City: {{ i.City }} District: {{ i.District }} Province: {{ i.Province }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {% elif authority == "admin" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/locationView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in location %}
+                        <li>{{ i.Sname }} City: {{ i.City }} District: {{ i.District }} Province: {{ i.Province }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/locationInsert">
+                <div class="card">
+                    <h1>Insert</h1>
+                    <ul>
+                    {% for i in location %}
+                        <li>{{ i.Sname }} City: {{ i.City }} District: {{ i.District }} Province: {{ i.Province }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/locationDelete">
+                <div class="card">
+                    <h1>Delete</h1>
+                    <ul>
+                    {% for i in location %}
+                        <li>{{ i.Sname }} City: {{ i.City }} District: {{ i.District }} Province: {{ i.Province }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endif %}
 {% endblock %}

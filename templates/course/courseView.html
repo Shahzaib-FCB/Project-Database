@@ -9,6 +9,12 @@
 {% endblock %}
 
 {% block body %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}" type="text/css" />
+    <form action= "{{ url_for('searchcourse') }}" method="post">
+        <input type="submit" value="Submit"/>
+        <input type="text" name="search" placeholder="Search Table.." />
+    </form>
+
     <table style="width:100%">
         <tr>
             <th>Course Number</th>

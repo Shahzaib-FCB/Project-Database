@@ -9,14 +9,93 @@
 {% endblock %}
 
 {% block body %}
-<p>{{ no_of_rows }}</p>
-Select one option
-    <form action="{{ url_for('handleSchool') }}" method="post">
-        <ul>
-            <li><input name="button" type="radio" value= "schoolView">View</li>
-            <li><input name="button" type="radio" value= "schoolInsert">Update</li>
-            <li><input name="button" type="radio" value= "schoolDelete">Delete</li>
-        </ul>
-        <input type="submit" value="Submit"/>
-    </form>
+    Select one option
+
+    {% if authority == "user" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/schoolView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in school %}
+                        <li>{{ i.Sname }} in {{ i.Location }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {% elif authority == "partial" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/schoolView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in school %}
+                        <li>{{ i.Sname }} in {{ i.Location }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/schoolInsert">
+                <div class="card">
+                    <h1>Insert</h1>
+                    <ul>
+                    {% for i in school %}
+                        <li>{{ i.Sname }} in {{ i.Location }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {% elif authority == "admin" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/schoolView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in school %}
+                        <li>{{ i.Sname }} in {{ i.Location }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/schoolInsert">
+                <div class="card">
+                    <h1>Insert</h1>
+                    <ul>
+                    {% for i in school %}
+                        <li>{{ i.Sname }} in {{ i.Location }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/schoolDelete">
+                <div class="card">
+                    <h1>Delete</h1>
+                    <ul>
+                    {% for i in school %}
+                        <li>{{ i.Sname }} in {{ i.Location }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endif %}
 {% endblock %}

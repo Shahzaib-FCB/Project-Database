@@ -10,12 +10,92 @@
 
 {% block body %}
 Select one option
-    <form action="{{ url_for('handleRank') }}" method="post">
-        <ul>
-            <li><input name="button" type="radio" value= "rankView">View</li>
-            <li><input name="button" type="radio" value= "rankInsert">Update</li>
-            <li><input name="button" type="radio" value= "rankDelete">Delete</li>
-        </ul>
-        <input type="submit" value="Submit"/>
-    </form>
+
+    {% if authority == "user" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/rankView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in rank %}
+                        <li>{{ i.Sname }} District Rank: {{ i.DistrictRank }} City Rank: {{ i.CityRank }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {% elif authority == "partial" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/rankView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in rank %}
+                        <li>{{ i.Sname }} District Rank: {{ i.DistrictRank }} City Rank: {{ i.CityRank }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/rankInsert">
+                <div class="card">
+                    <h1>Insert</h1>
+                    <ul>
+                    {% for i in rank %}
+                        <li>{{ i.Sname }} District Rank: {{ i.DistrictRank }} City Rank: {{ i.CityRank }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {% elif authority == "admin" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/rankView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in rank %}
+                        <li>{{ i.Sname }} District Rank: {{ i.DistrictRank }} City Rank: {{ i.CityRank }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/rankInsert">
+                <div class="card">
+                    <h1>Insert</h1>
+                    <ul>
+                    {% for i in rank %}
+                        <li>{{ i.Sname }} District Rank: {{ i.DistrictRank }} City Rank: {{ i.CityRank }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/rankDelete">
+                <div class="card">
+                    <h1>Delete</h1>
+                    <ul>
+                    {% for i in rank %}
+                        <li>{{ i.Sname }} District Rank: {{ i.DistrictRank }} City Rank: {{ i.CityRank }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endif %}
 {% endblock %}

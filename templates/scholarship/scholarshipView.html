@@ -9,6 +9,12 @@
 {% endblock %}
 
 {% block body %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}" type="text/css" />
+    <form action= "{{ url_for('searchscholarship') }}" method="post">
+        <input type="submit" value="Submit"/>
+        <input type="text" name="search" placeholder="Search Table.." />
+    </form>
+
     <table style="width:100%">
         <tr>
             <th>Scholarship Name</th>
@@ -26,5 +32,12 @@
                 <td>{{ i.SchRegNo }}</td>
             </tr>
         {% endfor %}
-    </table>
+    </table><br><br>
+
+    <form action="{{ url_for('rangescholarship') }}" method="post">
+        <input type="submit" value="Submit"/>
+        <input type="number" name="minimum" min=10000 step=1000 style="float:right" />
+        <input type="number" name="maximum" min=10000 step=1000 style="float:right" />
+
+    </form>
 {% endblock %}

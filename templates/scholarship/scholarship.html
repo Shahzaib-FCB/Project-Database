@@ -10,12 +10,92 @@
 
 {% block body %}
 Select one option
-    <form action="{{ url_for('handleScholarship') }}" method="post">
-        <ul>
-            <li><input name="button" type="radio" value= "scholarshipView">View</li>
-            <li><input name="button" type="radio" value= "scholarshipInsert">Update</li>
-            <li><input name="button" type="radio" value= "scholarshipDelete">Delete</li>
-        </ul>
-        <input type="submit" value="Submit"/>
-    </form>
+
+    {% if authority == "user" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/scholarshipView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in scholarship %}
+                        <li>{{ i.Type }} from {{ i.OrgName }} to {{ i.Sname }} of {{ i.Amount }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {% elif authority == "partial" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/scholarshipView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in scholarship %}
+                        <li>{{ i.Type }} from {{ i.OrgName }} to {{ i.Sname }} of {{ i.Amount }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/scholarshipInsert">
+                <div class="card">
+                    <h1>Insert</h1>
+                    <ul>
+                    {% for i in scholarship %}
+                        <li>{{ i.Type }} from {{ i.OrgName }} to {{ i.Sname }} of {{ i.Amount }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {% elif authority == "admin" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/scholarshipView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in scholarship %}
+                        <li>{{ i.Type }} from {{ i.OrgName }} to {{ i.Sname }} of {{ i.Amount }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/scholarshipInsert">
+                <div class="card">
+                    <h1>Insert</h1>
+                    <ul>
+                    {% for i in scholarship %}
+                        <li>{{ i.Type }} from {{ i.OrgName }} to {{ i.Sname }} of {{ i.Amount }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/scholarshipDelete">
+                <div class="card">
+                    <h1>Delete</h1>
+                    <ul>
+                    {% for i in scholarship %}
+                        <li>{{ i.Type }} from {{ i.OrgName }} to {{ i.Sname }} of {{ i.Amount }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endif %}
 {% endblock %}

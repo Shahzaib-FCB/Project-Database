@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
     <title>School Ranking System - Index</title>
   	<link rel="stylesheet" href="{{ url_for('static', filename='css/fonts/PoiretOne.css') }}" >
   	<link rel="stylesheet" href="{{ url_for('static', filename='css/fonts/PermanentMarker.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
   	<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
   	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
   	<script type="text/javascript" src="{{ url_for('static', filename='js/javascript.js') }}"></script>
+  	<style>
+  	/* Using panels to display blog date */
+    .panel.date {
+        margin: 0px;
+        width: 100px;
+        text-align: center;
+    }
+
+    .panel.date .month {
+        padding: 2px 0px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .panel.date .day {
+        padding: 3px 0px;
+        font-weight: 700;
+        font-size: 1.5em;
+    }
+    #map {
+      height: 100%;
+    }
+    </style>
   </head>
   <body>
     <div id="main" class="w3-animate-opacity">
@@ -21,8 +47,122 @@
   			</span>
   		</div>
   		<!--Write Every Code Here-->
-  		<h1>INDEX</h1>
+  		<h1>Index</h1>
 
+      <form action= "{{ url_for('searchindex') }}" method="post">
+      	<fieldset>
+      	<legend>Search Form</legend>
+      			<label for="search">Location</label>
+      			<input type="text" name="search" placeholder="Location .."/><br>
+
+      			<input type="submit" name="Search"/>
+      	</fieldset>
+      </form><br>
+
+  		{% if page == "fee" %}
+      <div class="container-fluid">
+              <div class="col-md-6">
+                  <div class="panel panel-danger">
+                      <div class="panel-heading">
+                          <h3 class="panel-title">
+                              <span class="glyphicon glyphicon-calendar"></span>
+                                  Fee Dates
+                              </h3>
+                      </div>
+                      <div class="panel-body">
+                          <ul class="media-list">
+                          {% for i in feeDeadlines %}
+                              <li class="media">
+                                  <div class="media-left">
+                                        <div class="panel panel-danger text-center date">
+                                          <div class="panel-heading month">
+                                            <span class="panel-title strong">
+                                              {{ i.FeeDate }}
+                                            </span>
+                                          </div>
+                                        </div>
+                                  </div>
+                                  <div class="media-body">
+                                      <h4 class="media-heading">
+                                          {{ i.Cname }}
+                                      </h4>
+                                      <p>School : {{ i.Sname }}</p>
+
+                                      <p>Money: {{ i.TotalAmount }}</p>
+                                  </div>
+                                    </li>
+                          {% endfor %}
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-md-6">
+                  <div class="panel panel-danger">
+                      <div class="panel-heading">
+                          <h3 class="panel-title">
+                              <span class="glyphicon glyphicon-calendar"></span>
+                                  Test Dates
+                              </h3>
+                      </div>
+                      <div class="panel-body">
+                          <ul class="media-list">
+                          {% for i in testDeadlines %}
+                              <li class="media">
+                                  <div class="media-left">
+                                        <div class="panel panel-danger text-center date">
+                                          <div class="panel-heading month">
+                                            <span class="panel-title strong">
+                                              {{ i.TestDate }}
+                                            </span>
+                                          </div>
+                                        </div>
+                                  </div>
+                                  <div class="media-body">
+                                      <h4 class="media-heading">
+                                          {{ i.Cname }}
+                                      </h4>
+                                      <p>School : {{ i.Sname }}</p>
+
+                                      <p>Centre Location: {{ i.Centre }}</p>
+                                  </div>
+                                    </li>
+                          {% endfor %}
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+      </div>
+
+
+    		{% elif page == "location" %}
+    		<table style="width:100%">
+          <tr>
+              <th>School Registration Number</th>
+              <th>School Name</th>
+              <th>Rank</th>
+              <th>Location</th>
+              <th>Phone Number</th>
+              <th>School's Website</th>
+          </tr>
+          {% for i in school %}
+          <tr>
+              <td>{{ i.RegNo }}</td>
+              <td>{{ i.Sname }}</td>
+              <td>{{ i.CityRank }}</td>
+              <td>{{ i.Location }}</td>
+              <td>{{ i.PhoneNo }}</td>
+              <td>{{ i.Website }}</td>
+          </tr>
+          {% endfor %}
+      </table><br><br>
+
+      <div style="text-align:center">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d217760.09933961474!2d74.21104132081267!3d31.482895008469942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sLahore%2C+Pakistan!5e0!3m2!1sen!2s!4v1515491959102" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+  		{% endif %}
+
+  		<div>
   	</div>
   </body>
 </html>

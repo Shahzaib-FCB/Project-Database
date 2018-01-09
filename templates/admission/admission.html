@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Admissions
+    Admission
 {% endblock %}
 
 {% block heading %}
@@ -9,13 +9,93 @@
 {% endblock %}
 
 {% block body %}
-Select one option
-    <form action="{{ url_for('handleAdmission') }}" method="post">
-        <ul>
-            <li><input name="button" type="radio" value= "admissionView">View</li>
-            <li><input name="button" type="radio" value= "admissionInsert">Update</li>
-            <li><input name="button" type="radio" value= "admissionDelete">Delete</li>
-        </ul>
-        <input type="submit" value="Submit"/>
-    </form>
+    Select one option
+
+    {% if authority == "user" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/admissionView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in admission %}
+                        <li>Name: {{ i.Sname }}, Marks Required: {{ i.MarksReq }}, Fee: {{ i.Fee }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {% elif authority == "partial" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/admissionView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in admission %}
+                        <li>Name: {{ i.Sname }}, Marks Required: {{ i.MarksReq }}, Fee: {{ i.Fee }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/admissionInsert">
+                <div class="card">
+                    <h1>Insert</h1>
+                    <ul>
+                    {% for i in admission %}
+                        <li>Name: {{ i.Sname }}, Marks Required: {{ i.MarksReq }}, Fee: {{ i.Fee }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {% elif authority == "admin" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/admissionView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in admission %}
+                        <li>Name: {{ i.Sname }}, Marks Required: {{ i.MarksReq }}, Fee: {{ i.Fee }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/admissionInsert">
+                <div class="card">
+                    <h1>Insert</h1>
+                    <ul>
+                    {% for i in admission %}
+                        <li>Name: {{ i.Sname }}, Marks Required: {{ i.MarksReq }}, Fee: {{ i.Fee }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/admissionDelete">
+                <div class="card">
+                    <h1>Delete</h1>
+                    <ul>
+                    {% for i in admission %}
+                        <li>Name: {{ i.Sname }}, Marks Required: {{ i.MarksReq }}, Fee: {{ i.Fee }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endif %}
 {% endblock %}

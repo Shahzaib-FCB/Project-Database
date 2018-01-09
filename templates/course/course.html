@@ -10,12 +10,92 @@
 
 {% block body %}
 Select one option
-    <form action="{{ url_for('handleCourse') }}" method="post">
-        <ul>
-            <li><input name="button" type="radio" value= "courseView">View</li>
-            <li><input name="button" type="radio" value= "courseInsert">Update</li>
-            <li><input name="button" type="radio" value= "courseDelete">Delete</li>
-        </ul>
-        <input type="submit" value="Submit"/>
-    </form>
+
+    {% if authority == "user" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/courseView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in course %}
+                        <li>Course: {{ i.Cname }}, Level: {{ i.Level }}, School: {{ i.Sname }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {% elif authority == "partial" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/courseView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in course %}
+                        <li>Course: {{ i.Cname }}, Level: {{ i.Level }}, School: {{ i.Sname }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/courseInsert">
+                <div class="card">
+                    <h1>Insert</h1>
+                    <ul>
+                    {% for i in course %}
+                        <li>Course: {{ i.Cname }}, Level: {{ i.Level }}, School: {{ i.Sname }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {% elif authority == "admin" %}
+    <div class="row">
+        <div class="column" id="fadeIn">
+            <a href="/courseView">
+                <div class="card">
+                    <h1>View</h1>
+                    <ul>
+                    {% for i in course %}
+                        <li>Course: {{ i.Cname }}, Level: {{ i.Level }}, School: {{ i.Sname }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/courseInsert">
+                <div class="card">
+                    <h1>Insert</h1>
+                    <ul>
+                    {% for i in course %}
+                        <li>Course: {{ i.Cname }}, Level: {{ i.Level }}, School: {{ i.Sname }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <div class="column" id="fadeIn">
+            <a href="/courseDelete">
+                <div class="card">
+                    <h1>Delete</h1>
+                    <ul>
+                    {% for i in course %}
+                        <li>Course: {{ i.Cname }}, Level: {{ i.Level }}, School: {{ i.Sname }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endif %}
 {% endblock %}
